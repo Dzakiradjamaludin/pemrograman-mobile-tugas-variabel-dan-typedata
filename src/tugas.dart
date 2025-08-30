@@ -1,58 +1,32 @@
-import 'dart:io';
+void main() {
+  // Data karyawan
+  String namaKaryawan = "Dzakira Djamaludin";
+  int jamKerja = 40;
+  double upahPerJam = 50.0;
+  bool statusKaryawan = true; // true = tetap, false = kontrak
 
-void main(List<String> args) {
-  String? name;
-  int? jamKerjaPerMinggu;
-  double? upahPerJam;
-  bool? statusKaryawan;
-  double gajiBersih;
+  // Menghitung gaji kotor
+  double gajiKotor = jamKerja * upahPerJam;
 
-  stdout.write("Masukkan Nama : ");
-  name = stdin.readLineSync();
+  // Menghitung pajak berdasarkan status karyawan
+  double pajak;
+  if (statusKaryawan) {
+    pajak = gajiKotor * 0.10; // 10% untuk karyawan tetap
+  } else {
+    pajak = gajiKotor * 0.05; // 5% untuk karyawan kontrak
+  }
 
-  do {
-    stdout.write("Jam kerja per minggu : ");
-    jamKerjaPerMinggu = int.parse(stdin.readLineSync()!);
-    if (jamKerjaPerMinggu <= 0) {
-      print("Jam kerja harus lebih dari 0, coba lagi!");
-    }
-  } while (jamKerjaPerMinggu <= 0);
+  // Menghitung gaji bersih
+  double gajiBersih = gajiKotor - pajak;
 
-  do {
-    stdout.write("Upah per jam : ");
-    upahPerJam = double.parse(stdin.readLineSync()!);
-    if (upahPerJam <= 0) {
-      print("Upah per jam harus lebih dari 0, coba lagi!");
-    }
-  } while (upahPerJam <= 0);
-
-  do {
-    stdout.write("Status karyawan (tetap/kontrak) : ");
-    String? inputStatus = stdin.readLineSync();
-    if (inputStatus != null) {
-      String status = inputStatus.trim().toLowerCase();
-      if (status == "tetap") {
-        statusKaryawan = true;
-        break;
-      } else if (status == "kontrak") {
-        statusKaryawan = false;
-        break;
-      } else {
-        print("Input tidak valid! Harus 'tetap' atau 'kontrak'. Coba lagi.");
-      }
-    }
-  } while (true);
-
-  double gajiKotor = jamKerjaPerMinggu * upahPerJam;
-  double pajak = statusKaryawan! ? gajiKotor * 0.10 : gajiKotor * 0.05;
-  gajiBersih = gajiKotor - pajak;
-
-  print("\n--- Slip Gaji ---");
-  print("Nama: $name");
-  print("Jam kerja per minggu: $jamKerjaPerMinggu");
-  print("Upah per jam: Rp$upahPerJam");
-  print("Status karyawan : ${statusKaryawan ? "Tetap" : "Kontrak"}");
-  print("Gaji Kotor: Rp$gajiKotor");
-  print("Pajak: Rp$pajak");
-  print("Gaji Bersih (setelah pajak): Rp$gajiBersih");
+  // Menampilkan hasil
+  print("=== SLIP GAJI KARYAWAN ===");
+  print("Nama Karyawan: $namaKaryawan");
+  print("Status: ${statusKaryawan ? 'Tetap' : 'Kontrak'}");
+  print("Jam Kerja: $jamKerja jam");
+  print("Upah per Jam: \$$upahPerJam");
+  print("Gaji Kotor: \$${gajiKotor.toStringAsFixed(2)}");
+  print("Pajak: \$${pajak.toStringAsFixed(2)}");
+  print("Gaji Bersih: \$${gajiBersih.toStringAsFixed(2)}");
+  print("==========================");
 }
