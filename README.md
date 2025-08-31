@@ -3,22 +3,33 @@ Aplikasi Penghitung Gaji Karyawan Sederhana
 Nama : Dzakira Djamaludin
 Npm : 07352311119
 
-## Deskripsi Program
-Program ini adalah aplikasi sederhana untuk menghitung gaji karyawan yang dibuat menggunakan bahasa pemrograman Dart. Program dapat menghitung gaji bersih berdasarkan data karyawan seperti nama, jam kerja, upah per jam, dan status karyawan (tetap atau kontrak).
+Deskripsi Program:
+Program ini adalah sistem penghitungan gaji sederhana untuk karyawan yang dapat menangani dua status karyawan (tetap dan kontrak) dengan perbedaan persentase pajak. Program menghitung gaji kotor, pajak, dan gaji bersih berdasarkan input data karyawan, kemudian menampilkan hasilnya dalam format slip gaji yang mudah dibaca.
 
-### Fitur Program:
-- Menyimpan data karyawan dengan tipe data yang sesuai
-- Menghitung gaji kotor (jam kerja × upah per jam)
-- Menghitung pajak berdasarkan status karyawan (10% untuk tetap, 5% untuk kontrak)
-- Menampilkan informasi lengkap termasuk gaji kotor, pajak, dan gaji bersih
+Fitur Program:
+- Mendukung dua status karyawan: tetap dan kontrak
+- Perhitungan pajak berbeda berdasarkan status (10% untuk tetap, 5% untuk kontrak)
+- Format output yang rapi dengan pemisah dan judul
+- Penampilan nilai mata uang dengan format dua digit desimal
+- Kode yang mudah dipahami dan dimodifikasi
 
-## Cara Menjalankan Program
+Struktur Folder:
+pemrograman-mobile-tugas-variabel-dan-typedata/
+├── src/
+│   └── tugas.dart
+├── README.md
 
-### Prerequisites:
-- Dart SDK terinstal di komputer Anda
-- Terminal atau command prompt
+langkah-langkah untuk mengupload ke GitHub:
+- Login ke akun GitHub
+- Klik tombol "+" di pojok kanan atas dan pilih "New repository"
+- Isi nama repository (pemrograman-mobile-tugas-variabel-dan-typedata)
+- Pilih publik 
+- Klik "Create repository"
 
-### Langkah-langkah:
-1. **Clone repository** (jika sudah di-push ke GitHub):
-   ```bash
-   git clone https://github.com/username/pemrograman-mobile-tugas-variabel-dan-typedata.git
+Push ke Github:
+- git init
+- git add .
+- git commit -m "first commit"
+- git branch -M main
+- git remote add origin https://github.com/Dzakiradjamaludin/pemrograman-mobile-tugas-variabel-dan-typedata
+- git push -u origin main
